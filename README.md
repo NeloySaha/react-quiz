@@ -2,7 +2,7 @@
 
 Test out your react knowledge at the React Quiz Website. The main reason behind making this app was to get familiar with the useReducer hook and typescript.
 
-**🚀 VISIT DEMO _[HERE]()_**
+**🚀 VISIT DEMO _[HERE](https://react-quiz-virid-psi.vercel.app/)_**
 
 ## 🪪 Acknowledgements
 
