@@ -1,29 +1,14 @@
-type QuestionType = {
-  question: string;
-  options: [string, string, string, string];
-  correctOption: number;
-  points: number;
-  id?: string;
-};
+import { useQuiz } from "../customHooks/useQuiz";
 
-type ActionType = {
-  type: string;
-  payload?: QuestionType[] | number;
-};
+export default function NextButton() {
+  const {
+    dispatch,
+    currentAnswer,
+    activeQuestionIndex: currentQuestion,
+    questions,
+  } = useQuiz();
+  const totalQuestions = questions.length;
 
-type Props = {
-  dispatch: (action: ActionType) => void;
-  currentAnswer: number | null;
-  currentQuestion: number;
-  totalQuestions: number;
-};
-
-export default function NextButton({
-  dispatch,
-  currentAnswer,
-  currentQuestion,
-  totalQuestions,
-}: Props) {
   if (currentAnswer === null) return null;
 
   if (currentQuestion < totalQuestions - 1) {

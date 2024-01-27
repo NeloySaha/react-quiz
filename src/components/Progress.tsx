@@ -1,21 +1,18 @@
-type Props = {
-  currentQuestion: number;
-  totalQuestions: number;
-  points: number;
-  maxPoints: number;
-  currentAnswer: null | number;
-};
+import { useQuiz } from "../customHooks/useQuiz";
 
 // true means 1
 // false means 0
 
-export default function Progress({
-  currentQuestion,
-  totalQuestions,
-  points,
-  maxPoints,
-  currentAnswer,
-}: Props) {
+export default function Progress() {
+  const {
+    points,
+    maxPoints,
+    currentAnswer,
+    questions,
+    activeQuestionIndex: currentQuestion,
+  } = useQuiz();
+  const totalQuestions = questions.length;
+
   return (
     <header className="progress">
       <progress

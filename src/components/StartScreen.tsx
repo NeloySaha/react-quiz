@@ -1,22 +1,9 @@
-type QuestionType = {
-  question: string;
-  options: [string, string, string, string];
-  correctOption: number;
-  points: number;
-  id?: string;
-};
+import { useQuiz } from "../customHooks/useQuiz";
 
-type ActionType = {
-  type: string;
-  payload?: QuestionType[];
-};
+export default function StartScreen() {
+  const { questions, dispatch } = useQuiz();
+  const questionAmount = questions.length;
 
-type PropsType = {
-  questionAmount: number;
-  dispatch: (action: ActionType) => void;
-};
-
-export default function StartScreen({ questionAmount, dispatch }: PropsType) {
   return (
     <div className="start">
       <h2>Welcome to the React Quiz 🤓</h2>

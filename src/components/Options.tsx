@@ -1,26 +1,8 @@
-type QuestionType = {
-  question: string;
-  options: [string, string, string, string];
-  correctOption: number;
-  points: number;
-  id?: string;
-};
+import { useQuiz } from "../customHooks/useQuiz";
 
-type ActionType = {
-  type: string;
-  payload?: QuestionType[] | number;
-};
-
-type Props = {
-  questionObj: QuestionType;
-  dispatch: (action: ActionType) => void;
-  currentAnswer: number | null;
-};
-export default function Options({
-  questionObj,
-  dispatch,
-  currentAnswer,
-}: Props) {
+export default function Options() {
+  const { questions, dispatch, currentAnswer, activeQuestionIndex } = useQuiz();
+  const questionObj = questions[activeQuestionIndex];
   const { options, correctOption } = questionObj;
 
   const optionsJsx = options.map((option, index) => (

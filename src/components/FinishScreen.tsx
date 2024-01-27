@@ -1,29 +1,7 @@
-type QuestionType = {
-  question: string;
-  options: [string, string, string, string];
-  correctOption: number;
-  points: number;
-  id?: string;
-};
+import { useQuiz } from "../customHooks/useQuiz";
 
-type ActionType = {
-  type: string;
-  payload?: QuestionType[] | number;
-};
-
-type Props = {
-  points: number;
-  maxPoints: number;
-  highScore: number;
-  dispatch: (action: ActionType) => void;
-};
-
-export default function FinishScreen({
-  points,
-  maxPoints,
-  highScore,
-  dispatch,
-}: Props) {
+export default function FinishScreen() {
+  const { points, maxPoints, highScore, dispatch } = useQuiz();
   const percentage = Math.round((points / maxPoints) * 100);
 
   let emoji;

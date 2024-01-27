@@ -1,23 +1,9 @@
 import { useEffect } from "react";
-type QuestionType = {
-  question: string;
-  options: [string, string, string, string];
-  correctOption: number;
-  points: number;
-  id?: string;
-};
+import { useQuiz } from "../customHooks/useQuiz";
 
-type ActionType = {
-  type: string;
-  payload?: QuestionType[] | number;
-};
+export default function Timer() {
+  const { timer, dispatch } = useQuiz();
 
-type Props = {
-  timer: number;
-  dispatch: (action: ActionType) => void;
-};
-
-export default function Timer({ timer, dispatch }: Props) {
   useEffect(() => {
     const timerId = setInterval(() => {
       dispatch({
